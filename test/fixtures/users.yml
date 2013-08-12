@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  password: MyString
+  cell: MyString
+  banned: false
+  confirmation_code: MyString
+  firstname: MyString
+  surname: MyString
+
+two:
+  email: MyString
+  password: MyString
+  cell: MyString
+  banned: false
+  confirmation_code: MyString
+  firstname: MyString
+  surname: MyString
