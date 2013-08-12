@@ -19,7 +19,7 @@
     </div>
     <div style="clear:both;"/>
       <div class="row collapse">
-        <a class="button small success radius right" href="#">Sign in</a>
+        <%= link_to 'Sign in', {:action => 'process_signin', :controller => 'main'}, :class => 'button small success radius right' %>
       </div>
     </div>    
   </div>
