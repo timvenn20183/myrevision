@@ -36,13 +36,16 @@
     <ul class="right">
         <li class="divider">
         </li>
-        <li class="has-form">
-            <a class="button success radius" href="#">Sign in</a>
+        <li class="has-form">          
+            <%= link_to 'Sign in', {:action => 'signin', :controller => 'main'}, :class => 'button success radius' %>
         </li>
     </ul>
   </section>
 </nav>
-    <%= yield %>
+<div id="center">
+  <%= yield %>
+</div>
+
 <%= javascript_include_tag "application" %>
 </body>
-</html>
+</html> 
