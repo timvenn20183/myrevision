@@ -1,7 +1,10 @@
 <h4><%= course.name %></h4>
 <p><%= course.description %></p>
+<p>This course contains <%= course.questions.count %> questions</p>
 <p>Course progress :
-<div class="progress large-8 success radius"><span class="meter" style="width:25%;"></span></div>
+<div class="progress large-8 success radius"><span class="meter" style="width:<%= percentage_answered %>%;"></span></div>
 </p>
-<a class="button small radius left" href="#">Continue</a>
+<% button_text = 'Continue' if questions_answered > 0 %>
+<% button_text = 'Start' if questions_answered == 0 %>
+<%= link_to button_text, {:action => 'revise', :controller => 'courses', :id => encrypt(course.id), :remote => true} , {:class => 'button small radius left'} %>
 

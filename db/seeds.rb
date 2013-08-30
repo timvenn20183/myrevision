@@ -28,6 +28,50 @@ question = Question.new
     question.title = "This is a simple question. 1 + 1 = ?"
 question.save
 
+question = Question.new
+    question.course_id = 1
+    question.title = "This is a simple question. 4 + 4 = ?"
+question.save
+
+# answer 1
+
+answer = Answer.new
+    answer.title = "10"
+    answer.question_id = 2
+    answer.correct_answer = false
+    answer.explain = "It's just wrong"
+answer.save
+
+answer = Answer.new
+    answer.title = "2"
+    answer.question_id = 2
+    answer.correct_answer = false
+    answer.explain = "It's just wrong"
+answer.save
+
+answer = Answer.new
+    answer.title = "3"
+    answer.question_id = 2
+    answer.correct_answer = false
+    answer.explain = "It's just wrong"
+answer.save
+
+answer = Answer.new
+    answer.title = "4"
+    answer.question_id = 2
+    answer.correct_answer = false
+    answer.explain = "It's just wrong"
+answer.save
+
+answer = Answer.new
+    answer.title = "8"
+    answer.question_id = 2
+    answer.correct_answer = true
+    answer.explain = "Welcome to maths"
+answer.save
+
+# answer 1
+
 answer = Answer.new
     answer.title = "1"
     answer.question_id = 1
@@ -62,3 +106,4 @@ answer = Answer.new
     answer.correct_answer = false
     answer.explain = "It's just wrong"
 answer.save
+

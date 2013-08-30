@@ -1,0 +1,17 @@
+<%= form_for 'answer' , :url =>  {:action => 'submit_answer', :controller => 'courses'}, :html => { :id => "answer", :class => "custom"}, :remote => true  do |f| %>
+<div class="panel radius">
+    <%= question.title %>
+</div>
+<div id="result">
+<div class="alert-box radius">
+        Please select an option below
+</div>
+</div>
+<div class="panel radius">
+    <% question.answers.each do |answer| %>
+      <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>"><span class="custom radio"></span> <%= answer.title %></label><br/>
+    <% end %>
+    <% geturl = url_for :controller => 'courses', :action => 'submit_answer' %>
+    <button class="button small radius">Submit</button>
+</div>
+<% end %>

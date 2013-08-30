@@ -1,0 +1,9 @@
+<% if @answer.correct_answer then %>
+<div class="alert-box success radius">
+    <%= @answer.explain %>
+</div>
+<% else %>
+<div class="alert-box alert radius">
+    <%= @answer.explain %>
+</div>
+<% end %>
