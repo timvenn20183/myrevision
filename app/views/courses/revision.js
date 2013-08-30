@@ -1,1 +1,1 @@
-$('#board').html("<%= j render :partial => 'courses/revision' %>");
+$('#board').html("<%= j render :partial => 'courses/revision', :locals => { :course => @course }  %>");

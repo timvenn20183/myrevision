@@ -1,6 +1,7 @@
 <ul class="side-nav">
-<li><%= link_to 'Economics', {:action => 'revision', :controller => 'courses', :remote => true} %></li>
-<li><%= link_to 'Maths', {:action => 'revision', :controller => 'courses', :remote => true} %></li>
+<% current_user.courses.each do |course| %>
+<li><%= link_to course.name, {:action => 'revision', :controller => 'courses', :remote => true, :id => encrypt(course.id)} %></li>
+<% end %>
 <li class="divider"/>
 <li><a href="#">Profile</a></li>
 <li><a href="#">Courses</a></li>

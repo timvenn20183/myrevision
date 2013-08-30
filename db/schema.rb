@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130812191038) do
+ActiveRecord::Schema.define(version: 20130830125316) do
 
   create_table "answers", force: true do |t|
     t.string   "title"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20130812191038) do
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+
   create_table "courses", force: true do |t|
     t.string   "name"
     t.boolean  "active"
@@ -31,6 +33,14 @@ ActiveRecord::Schema.define(version: 20130812191038) do
     t.datetime "updated_at"
   end
 
+  create_table "courses_users", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "user_id"
+  end
+
+  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
+  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
+
   create_table "questions", force: true do |t|
     t.text     "title"
     t.string   "course_id"
@@ -38,14 +48,21 @@ ActiveRecord::Schema.define(version: 20130812191038) do
     t.datetime "updated_at"
   end
 
+  add_index "questions", ["course_id"], name: "index_questions_on_course_id"
+
   create_table "useranswers", force: true do |t|
     t.integer  "question_id"
     t.string   "answers"
     t.integer  "timespent"
     t.integer  "user_id"
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "useranswers", ["course_id"], name: "index_useranswers_on_course_id"
+  add_index "useranswers", ["question_id"], name: "index_useranswers_on_question_id"
+  add_index "useranswers", ["user_id"], name: "index_useranswers_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
