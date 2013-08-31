@@ -8,7 +8,7 @@
 </div>
 </div>
 <div class="panel radius">
-    <% question.answers.each do |answer| %>
+    <% question.answers.shuffle.each do |answer| %>
       <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>"><span class="custom radio"></span> <%= answer.title %></label><br/>
     <% end %>
     <% geturl = url_for :controller => 'courses', :action => 'submit_answer' %>
