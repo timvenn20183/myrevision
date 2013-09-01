@@ -1,5 +1,4 @@
-<%= form_for 'answer' , :url =>  {:action => 'submit_answer', :controller => 'courses'}, :html => { :id => "answer", :class => "custom"}, :remote => true  do |f| %>
-<div class="panel radius">
+<div class="panel radius" id="question">
     <%= question.title %>
 </div>
 <div id="result">
@@ -7,12 +6,12 @@
         Please select an option below
 </div>
 </div>
-<div class="panel radius">
+<div class="panel radius" id="answer_section">
+    <%= form_for 'answer' , :url =>  {:action => 'submit_answer', :controller => 'courses'}, :html => { :id => "answer", :class => "custom"}, :remote => true  do |f| %>
     <% question.answers.shuffle.each do |answer| %>
       <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>" onchange="$('#submit').removeClass('disabled');"><span class="custom radio"></span> <%= answer.title %></label><br/>
     <% end %>
-    <% geturl = url_for :controller => 'courses', :action => 'submit_answer' %>
-    <button id="submit" class="disabled button small radius">Evaluate</button>
+    <button id="submit" type="submit" class="disabled button small radius">Evaluate</button>
 </div>
 <% end %>
 

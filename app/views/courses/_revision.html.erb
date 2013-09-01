@@ -4,7 +4,8 @@
 <p>Course progress :
 <div class="progress large-8 success radius"><span class="meter" style="width:<%= percentage_answered %>%;"></span></div>
 </p>
-<% button_text = 'Continue' if questions_answered > 0 %>
-<% button_text = 'Start' if questions_answered == 0 %>
-<%= link_to button_text, {:action => 'revise', :controller => 'courses', :id => encrypt(course.id), :remote => true} , {:class => 'button small radius left'} %>
-
+<% if course.incomplete_questions_for_user(current_user).count > 0 then %>
+    <%= render :partial => 'revision_continue.html.erb', :locals => {:course => course, :questions_answered => questions_answered} %>
+<% else %>
+    <%= render :partial => 'revision_complete.html.erb' %>
+<% end %>
