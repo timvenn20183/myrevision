@@ -9,9 +9,10 @@
 </div>
 <div class="panel radius">
     <% question.answers.shuffle.each do |answer| %>
-      <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>"><span class="custom radio"></span> <%= answer.title %></label><br/>
+      <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>" onchange="$('#submit').removeClass('disabled');"><span class="custom radio"></span> <%= answer.title %></label><br/>
     <% end %>
     <% geturl = url_for :controller => 'courses', :action => 'submit_answer' %>
-    <button class="button small radius">Submit</button>
+    <button id="submit" class="disabled button small radius">Evaluate</button>
 </div>
 <% end %>
+

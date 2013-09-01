@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
 
     def revise
         @course = Course.find(decrypt(params[:id]))
-        @unanswered_questions = @course.questions-current_user.useranswers.where(:course => @course)
+        @unanswered_questions = @course.unanswered_questions_for_user(current_user)
         @question = @unanswered_questions[rand(@unanswered_questions.count)]
     end
 

@@ -1,1 +1,1 @@
-$('#result').html("<%= j render :partial => 'courses/submit_answer' %>");
+$('#result').html("<%= j render :partial => 'courses/submit_answer', :locals => {:answer => @answer} %>");
