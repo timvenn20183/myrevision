@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830205343) do
+ActiveRecord::Schema.define(version: 20130905182907) do
 
   create_table "answers", force: true do |t|
     t.string   "title"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20130830205343) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "answer_id"
+    t.integer  "seconds",     default: 0
   end
 
   add_index "useranswers", ["answer_id"], name: "index_useranswers_on_answer_id"

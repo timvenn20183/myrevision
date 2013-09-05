@@ -17,7 +17,9 @@ class CoursesController < ApplicationController
 
     def submit_answer
         @answer = Answer.find(decrypt(params[:radio]))
+        @time = params[:time]
         @useranswer = Useranswer.new
+        @useranswer.seconds = Time.now - @time.to_time
         @useranswer.user = current_user
         @useranswer.question = @answer.question
         @useranswer.answer = @answer

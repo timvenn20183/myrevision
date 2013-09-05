@@ -8,6 +8,7 @@
 </div>
 <div class="panel radius" id="answer_section">
     <%= form_for 'answer' , :url =>  {:action => 'submit_answer', :controller => 'courses'}, :html => { :id => "answer", :class => "custom"}, :remote => true  do |f| %>
+    <%= hidden_field_tag :time, Time.now %>
     <% question.answers.shuffle.each do |answer| %>
       <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>" onchange="$('#submit').removeClass('disabled');"><span class="custom radio"></span> <%= answer.title %></label><br/>
     <% end %>
