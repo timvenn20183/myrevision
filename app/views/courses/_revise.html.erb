@@ -11,7 +11,9 @@
     <% question.answers.shuffle.each do |answer| %>
       <label for="radio"><input name="radio" type="radio" id="radio" style="display:none;" value="<%= encrypt(answer.id) %>" onchange="$('#submit').removeClass('disabled');"><span class="custom radio"></span> <%= answer.title %></label><br/>
     <% end %>
-    <button id="submit" type="submit" class="disabled button small radius">Evaluate</button>
+    <div id="next">
+        <button id="submit" type="submit" class="disabled button small radius">Evaluate</button>
+    </div>
 </div>
 <% end %>
 

@@ -1,0 +1,2 @@
+<% geturl = url_for :controller => 'courses', :action => 'revise', :id => encrypt(course.id) %>
+<button id="continue" type="button" onclick="$.ajax({url : '<%= geturl %>'});" class="button small radius">Next question</button>

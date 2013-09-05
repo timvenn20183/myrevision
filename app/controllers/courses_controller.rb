@@ -10,6 +10,9 @@ class CoursesController < ApplicationController
         @course = Course.find(decrypt(params[:id]))
         @unanswered_questions = @course.incomplete_questions_for_user(current_user)
         @question = @unanswered_questions[rand(@unanswered_questions.count)]
+        respond_to do |format|
+            format.js
+        end
     end
 
     def submit_answer
@@ -20,6 +23,10 @@ class CoursesController < ApplicationController
         @useranswer.answer = @answer
         @useranswer.course = @answer.question.course
         @useranswer.save
+        respond_to do |format|
+            format.js { render :action => 'revision_complete' } if @answer.question.course.incomplete_questions_for_user(current_user).count == 0
+            format.js
+        end
     end
 
 end
